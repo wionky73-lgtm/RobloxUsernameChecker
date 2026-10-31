@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RobloxUsernameChecker.MainPage"
+             Title="Проверка Roblox-ников"
+             BackgroundColor="{StaticResource PageBackground}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Label Text="ROBLOX USERNAME CHECKER"
+                   TextColor="{StaticResource Accent}" FontSize="13"
+                   FontAttributes="Bold" />
+            <Label Text="Проверка имён" TextColor="{StaticResource MainText}"
+                   FontSize="27" FontAttributes="Bold" />
+            <Label Text="Вставь ники — каждый с новой строки, или загрузи TXT-файл."
+                   TextColor="{StaticResource MutedText}" FontSize="13" />
+
+            <Border BackgroundColor="{StaticResource PanelBackground}"
+                    Stroke="#38314D" StrokeThickness="1" Padding="12">
+                <Editor x:Name="NamesEditor" Placeholder="Например:
+Player_One
+CoolBuilder2026"
+                        TextColor="{StaticResource MainText}"
+                        PlaceholderColor="{StaticResource MutedText}"
+                        BackgroundColor="Transparent" AutoSize="TextChanges"
+                        MinimumHeightRequest="130" />
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Text="Импорт TXT" Clicked="ImportClicked"
+                        BackgroundColor="#39304F" TextColor="White" />
+                <Button Grid.Column="1" Text="Очистить" Clicked="ClearClicked"
+                        BackgroundColor="#39304F" TextColor="White" />
+            </Grid>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button x:Name="StartButton" Text="Начать проверку"
+                        Clicked="StartClicked" BackgroundColor="{StaticResource Accent}"
+                        TextColor="#171222" FontAttributes="Bold" />
+                <Button x:Name="StopButton" Grid.Column="1" Text="Остановить"
+                        Clicked="StopClicked" IsEnabled="False"
+                        BackgroundColor="#573B57" TextColor="White" />
+            </Grid>
+
+            <ProgressBar x:Name="CheckProgress" Progress="0"
+                         ProgressColor="{StaticResource Accent}" />
+            <Label x:Name="ProgressLabel" Text="Ожидание"
+                   TextColor="{StaticResource MutedText}" FontSize="12" />
+
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                <Border BackgroundColor="{StaticResource PanelBackground}" Padding="10">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Свободны" TextColor="#8BE0B0" FontSize="11"/>
+                        <Label x:Name="AvailableCount" Text="0" TextColor="White" FontSize="22" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+                <Border Grid.Column="1" BackgroundColor="{StaticResource PanelBackground}" Padding="10">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Заняты" TextColor="#F0C477" FontSize="11"/>
+                        <Label x:Name="TakenCount" Text="0" TextColor="White" FontSize="22" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+                <Border Grid.Column="2" BackgroundColor="{StaticResource PanelBackground}" Padding="10">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Ошибки" TextColor="#F08C9B" FontSize="11"/>
+                        <Label x:Name="ErrorCount" Text="0" TextColor="White" FontSize="22" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <Label Text="Результаты" TextColor="{StaticResource MainText}"
+                   FontSize="18" FontAttributes="Bold" />
+            <Border BackgroundColor="{StaticResource PanelBackground}" Stroke="#38314D" Padding="10">
+                <Label x:Name="ResultsLabel" Text="Здесь появятся результаты проверки."
+                       TextColor="{StaticResource MutedText}" FontSize="13" />
+            </Border>
+            <Button Text="Экспорт свободных в TXT" Clicked="ExportClicked"
+                    BackgroundColor="#39304F" TextColor="White" />
+            <Label Text="Проверка выполняется с паузой между запросами. Не запускай много проверок подряд."
+                   TextColor="{StaticResource MutedText}" FontSize="11" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
