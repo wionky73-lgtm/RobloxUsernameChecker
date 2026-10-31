@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RobloxUsernameChecker.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PageBackground">#11101A</Color>
+            <Color x:Key="PanelBackground">#1D1A2B</Color>
+            <Color x:Key="Accent">#9B7BFF</Color>
+            <Color x:Key="MainText">#F4F0FF</Color>
+            <Color x:Key="MutedText">#AAA3BC</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
